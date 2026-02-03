@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>診断結果｜金持ちタイプ診断</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <div class="brand">
+        <div class="brand__title">診断結果</div>
+        <div class="brand__subtitle">金持ちタイプ診断｜10問</div>
+      </div>
+      <a class="btn btn--ghost" href="./index.html">もう一度診断する</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card" id="noData" style="display:none;">
+      <h2>結果データが見つかりません</h2>
+      <p>診断を先に実施してください。</p>
+      <div class="actions">
+        <a class="btn btn--primary" href="./index.html">診断へ戻る</a>
+      </div>
+    </section>
+
+    <section class="card resultHero" id="resultHero" style="display:none;">
+      <div class="resultHero__badge" id="typeBadge">TYPE</div>
+      <h1 class="resultHero__title" id="typeName">タイプ名</h1>
+      <p class="resultHero__tagline" id="typeTagline">タグライン</p>
+
+      <div class="resultHero__meta">
+        <div class="metaBox">
+          <div class="metaBox__label">主軸タイプ</div>
+          <div class="metaBox__value" id="primaryType">—</div>
+        </div>
+        <div class="metaBox">
+          <div class="metaBox__label">補助タイプ</div>
+          <div class="metaBox__value" id="secondaryType">—</div>
+        </div>
+        <div class="metaBox">
+          <div class="metaBox__label">判定</div>
+          <div class="metaBox__value" id="blendNote">—</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn--ghost" id="copyBtn">結果をコピー</button>
+        <a class="btn btn--primary" href="#cta">無料勉強会の案内を見る</a>
+      </div>
+    </section>
+
+    <section class="card" id="scoreCard" style="display:none;">
+      <h2>スコア内訳</h2>
+      <p class="muted">あなたの回答から「役割ゾーンの出やすさ」を点数化しています。上位2つが近いほど複合型になります。</p>
+      <div class="bars" id="bars"></div>
+    </section>
+
+    <section class="card" id="deepDiveCard" style="display:none;">
+      <h2>詳しい解説</h2>
+
+      <div class="grid2">
+        <div class="panel">
+          <h3>1) あなたの行動傾向（今回の回答から言えること）</h3>
+          <div class="content" id="behaviorSummary"></div>
+        </div>
+        <div class="panel">
+          <h3>2) お金が回りやすい「役割ゾーン」</h3>
+          <div class="content" id="roleZone"></div>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div class="panel">
+          <h3>3) 具体例｜向いている働き方・職業・役割</h3>
+          <div class="content" id="jobs"></div>
+        </div>
+        <div class="panel">
+          <h3>4) なぜこのゾーンで回りやすいのか（構造）</h3>
+          <div class="content" id="mechanism"></div>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div class="panel">
+          <h3>5) 増える行動（再現しやすい3つ）</h3>
+          <div class="content" id="doMore"></div>
+        </div>
+        <div class="panel">
+          <h3>6) 落とし穴（やりがちな罠）</h3>
+          <div class="content" id="pitfalls"></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>7) 同じタイプでも「結果が真逆になる分岐」</h3>
+        <p class="muted">タイプは「型」。意識の使い方は「質」。この分岐を見逃すと、タイプを知っても現実が変わりません。</p>
+
+        <div class="grid2">
+          <div class="splitBox splitBox--low">
+            <div class="splitBox__head">低意識（詰む使い方）</div>
+            <div class="content" id="lowUse"></div>
+          </div>
+          <div class="splitBox splitBox--high">
+            <div class="splitBox__head">高意識（伸びる使い方）</div>
+            <div class="content" id="highUse"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>8) 今週の実験（1つでいい）</h3>
+        <p class="muted">知識より、行動の微修正が先。1つだけ試してください。</p>
+        <div class="content" id="experiment"></div>
+      </div>
+
+      <div class="panel" id="blendPanel" style="display:none;">
+        <h3>9) 複合型（主軸×補助）の使い方</h3>
+        <p class="muted">主軸＋補助の2武器をどう使い分けるかが鍵です。</p>
+        <div class="content" id="blendGuide"></div>
+      </div>
+    </section>
+
+    <section class="card cta" id="cta">
+      <h2>無料勉強会にご招待</h2>
+      <p class="lead">
+        タイプは入口です。<br>
+        <b>「この役割ゾーンを、どの意識の質で使っているか」</b>が、現実の分岐点になります。
+      </p>
+
+      <div class="notice">
+        <h3>無料勉強会で扱うこと（例）</h3>
+        <ul>
+          <li>タイプは合っているのに苦しい人が、どこで詰まっているか</li>
+          <li>意識レベル（反応の質）を変える具体策</li>
+          <li>タイプ×意識で、次の一手を具体化</li>
+          <li>ACT診断（全体地図）を使った深掘り</li>
+        </ul>
+      </div>
+
+      <div class="actions">
+        <!-- 運用時にリンク差し替え -->
+        <a class="btn btn--primary" href="#" id="ctaLink">無料勉強会に申し込む</a>
+        <a class="btn btn--ghost" href="./index.html">もう一度診断する</a>
+      </div>
+
+      <p class="muted small">※「申し込む」リンクはLINEやフォームURLへ差し替えてください。</p>
+    </section>
+
+    <section class="card smallprint">
+      <h3>免責</h3>
+      <p>
+        本診断は自己理解の補助ツールであり、投資助言・税務助言・法務助言ではありません。
+        経済的意思決定は自己責任で行ってください。
+      </p>
+    </section>
+  </main>
+
+  <script src="./js/questions.js"></script>
+  <script src="./js/profiles.js"></script>
+  <script src="./js/logic.js"></script>
+  <script src="./js/result.js"></script>
+</body>
+</html>
