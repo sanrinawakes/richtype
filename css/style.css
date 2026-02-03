@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  background: #0e0e0e;
+  color: #f5f5f5;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+h1, h2 {
+  line-height: 1.4;
+}
+
+button {
+  padding: 14px 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button.primary {
+  background: #3b82f6;
+  color: #fff;
+}
+
+button.secondary {
+  background: #444;
+  color: #fff;
+}
+
+.question {
+  margin-top: 32px;
+}
+
+.choice {
+  margin: 12px 0;
+  padding: 14px;
+  border-radius: 6px;
+  background: #1e1e1e;
+  cursor: pointer;
+}
+
+.choice:hover {
+  background: #2a2a2a;
+}
+
+.footer {
+  margin-top: 48px;
+  font-size: 14px;
+  color: #aaa;
+}
